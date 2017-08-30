@@ -1,0 +1,8 @@
+version: '2'
+
+services:
+  azsp.products:
+    image: azsp.products
+    build:
+      context: ./AzSp.Products
+      dockerfile: Dockerfile
