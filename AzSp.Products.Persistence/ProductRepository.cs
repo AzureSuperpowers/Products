@@ -9,14 +9,14 @@ namespace AzSp.Products.Persistence
 {
     public class ProductRepository
     {
-        private readonly DbConfiguration _dbConfiguration;
+        private readonly AppConfiguration _appConfiguration;
 
-        public ProductRepository(DbConfiguration dbConfiguration)
+        public ProductRepository(AppConfiguration appConfiguration)
         {
-            _dbConfiguration = dbConfiguration;
+            _appConfiguration = appConfiguration;
         }
 
-        public IDbConnection Connection => new SqlConnection(_dbConfiguration.ConnectionString);
+        public IDbConnection Connection => new SqlConnection(_appConfiguration.ConnectionString);
 
         public IEnumerable<Product> GetAll()
         {

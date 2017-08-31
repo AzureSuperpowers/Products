@@ -33,8 +33,12 @@ namespace AzSp.Products
         public void ConfigureContainer(ContainerBuilder builder)
         {
             builder.Register(
-                    d => new DbConfiguration {ConnectionString = Configuration.GetConnectionString("ProductDatabase")})
-                .As<DbConfiguration>();
+                    d => new AppConfiguration
+                    {
+                        ConnectionString = Configuration.GetConnectionString("ProductDatabase"),
+                        ElasticSearch = Configuration.GetConnectionString("ElasticSearch")
+                    })
+                .As<AppConfiguration>();
             builder.RegisterType<ProductRepository>().AsSelf();
         }
 
