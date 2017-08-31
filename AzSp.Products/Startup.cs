@@ -1,7 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using Autofac;
+using AzSp.Products.Persistence;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
@@ -19,6 +17,7 @@ namespace AzSp.Products
                 .AddJsonFile("appsettings.json", optional: false, reloadOnChange: true)
                 .AddJsonFile($"appsettings.{env.EnvironmentName}.json", optional: true)
                 .AddEnvironmentVariables();
+
             Configuration = builder.Build();
         }
 
@@ -31,8 +30,16 @@ namespace AzSp.Products
             services.AddMvc();
         }
 
+        public void ConfigureContainer(ContainerBuilder builder)
+        {
+            builder.Register(
+                    d => new DbConfiguration {ConnectionString = Configuration.GetConnectionString("ProductDatabase")})
+                .As<DbConfiguration>();
+            builder.RegisterType<ProductRepository>().AsSelf();
+        }
+
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory)
+        public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory)//, ProductContext context)
         {
             loggerFactory.AddConsole(Configuration.GetSection("Logging"));
             loggerFactory.AddDebug();
@@ -40,4 +47,5 @@ namespace AzSp.Products
             app.UseMvc();
         }
     }
+    
 }

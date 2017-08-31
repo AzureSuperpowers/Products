@@ -7,6 +7,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AzSp.Products", "AzSp.Produ
 EndProject
 Project("{E53339B2-1760-4266-BCC7-CA923CBCF16C}") = "docker-compose", "docker-compose.dcproj", "{89284BDC-2CD4-43C3-ACD8-4600D97D12E2}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AzSp.Products.Domain", "AzSp.Products.Domain\AzSp.Products.Domain.csproj", "{0A4FC238-2E91-4590-9DCD-4DFEEA6A46BB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AzSp.Products.Persistence", "AzSp.Products.Persistence\AzSp.Products.Persistence.csproj", "{C8FA9927-6E0A-4934-BB3B-2B10F165826E}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +25,14 @@ Global
 		{89284BDC-2CD4-43C3-ACD8-4600D97D12E2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{89284BDC-2CD4-43C3-ACD8-4600D97D12E2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{89284BDC-2CD4-43C3-ACD8-4600D97D12E2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0A4FC238-2E91-4590-9DCD-4DFEEA6A46BB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0A4FC238-2E91-4590-9DCD-4DFEEA6A46BB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0A4FC238-2E91-4590-9DCD-4DFEEA6A46BB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0A4FC238-2E91-4590-9DCD-4DFEEA6A46BB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C8FA9927-6E0A-4934-BB3B-2B10F165826E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C8FA9927-6E0A-4934-BB3B-2B10F165826E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C8FA9927-6E0A-4934-BB3B-2B10F165826E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C8FA9927-6E0A-4934-BB3B-2B10F165826E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

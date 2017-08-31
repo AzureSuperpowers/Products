@@ -5,6 +5,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Autofac.Extensions.DependencyInjection;
 
 namespace AzSp.Products
 {
@@ -13,6 +14,7 @@ namespace AzSp.Products
         public static void Main(string[] args)
         {
             var host = new WebHostBuilder()
+                .ConfigureServices(services => services.AddAutofac())
                 .UseKestrel()
                 .UseContentRoot(Directory.GetCurrentDirectory())
                 .UseStartup<Startup>()

@@ -1,26 +1,39 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Configuration;
+using Dapper;
+using System.Data.SqlClient;
+using AzSp.Products.Domain;
+using AzSp.Products.Persistence;
 
 namespace AzSp.Products.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("")]
     public class ValuesController : Controller
     {
+        private readonly ProductRepository _productRepository;
+
+        public ValuesController(ProductRepository productRepository)
+        {
+            _productRepository = productRepository;
+        }
+
         // GET api/values
         [HttpGet]
-        public IEnumerable<string> Get()
+        public IEnumerable<Product> Get()
         {
-            return new string[] { "value1", "value2" };
+            return _productRepository.GetAll();
         }
 
         // GET api/values/5
         [HttpGet("{id}")]
-        public string Get(int id)
+        public Product Get(int id)
         {
-            return "value";
+            return _productRepository.GetByID(id);
         }
 
         // POST api/values

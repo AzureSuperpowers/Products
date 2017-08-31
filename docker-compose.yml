@@ -1,4 +1,4 @@
-version: '2'
+version: '3'
 
 services:
   azsp.products:
@@ -6,3 +6,5 @@ services:
     build:
       context: ./AzSp.Products
       dockerfile: Dockerfile
+    ports:
+      - "8000:80"
