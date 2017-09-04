@@ -1,8 +1,8 @@
-#Products
+# Products
 
-##Pre-requisites  
+## Pre-requisites  
 * Azure Cli
 
-##Steps  
+## Steps  
 * Create Azure Subscription  
     * https://account.windowsazure.com/Subscriptions  
