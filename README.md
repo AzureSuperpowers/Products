@@ -13,8 +13,8 @@
 `az acs create --orchestrator-type kubernetes --resource-group kube --name myK8sCluster --generate-ssh-keys --agent-count 1`  
 * Get Azure credentials to be able to use the Kubernetes Cli (kubectl)  
 `az acs kubernetes get-credentials -g kube --name=myK8sCluster`  
-* Confirm Kubernetes cluster by getting its nodes  
-`kubectl get nodes`  
+* Confirm Kubernetes cluster by Checking Dashboard  
+`az acs kubernetes browse -g kube -n myK8sCluster`  
 * (Optional) Create secret for private Registry  
 `kubectl create secret docker-registry regsecret --docker-server=[SERVER] --docker-username=[USERNAME] --docker-password=[PASSWORD] --docker-email=[EMAIL]`  
 
@@ -42,3 +42,11 @@
 * Push Image
 `docker push [Registry URL]/azsp.products`
 
+## Deploying to Kubernetes  
+
+* Creating Deployment workload  
+`kubectl apply -f .deployment\deployment.yaml`  
+* Creating Service workload  
+`kubectl apply -f .deployment\service.yaml`  
+* (Optional) Watch for Service to be finalized  
+`kubectl get services lbproducts --watch`
