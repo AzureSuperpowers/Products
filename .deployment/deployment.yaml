@@ -11,7 +11,7 @@ spec:
         service: products
     spec:
       containers:
-      - image: myacr.azurecr.io/azsp.products:latest
+      - image: azuresuperpowers.azurecr.io/azsp.products:latest
         name: products
         ports:
         - containerPort: 80

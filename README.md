@@ -5,7 +5,7 @@
 * [Azure Subscription](https://account.windowsazure.com/Subscriptions )  
 * [Kubernetes Cli (kubectl)](https://kubernetes.io/docs/tasks/tools/install-kubectl/)
 
-## Steps  
+## Setting Up Environment  
 > Most of the steps below can be done via the [Azure Portal](https://portal.azure.com)  
 * Create Resource Group  
 `az group create -n kube -l eastus`   
@@ -17,3 +17,15 @@
 `kubectl get nodes`  
 * (Optional) Create secret for private Registry  
 `kubectl create secret docker-registry regsecret --docker-server=[SERVER] --docker-username=[USERNAME] --docker-password=[PASSWORD] --docker-email=[EMAIL]`  
+
+## Setting Up Elastic Search   
+> I'm using a set of scripts available [here](https://github.com/kubernetes/kubernetes/tree/master/examples/elasticsearch) to create an instance of [Elastic Search](https://www.elastic.co/products/elasticsearch)  
+
+* Create Service Account  
+`kubectl apply -f .deployment/elastic/service-account.yaml`  
+* Create Replication Controller  
+`kubectl apply -f .deployment/elastic/es-rc.yaml`  
+* Create Service  
+`kubectl apply -f .deployment/elastic/es-svc.yaml`
+
+## Building and Packing  
