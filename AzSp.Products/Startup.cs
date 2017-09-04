@@ -1,4 +1,5 @@
 ﻿using Autofac;
+using AzSp.Products.Logic;
 using AzSp.Products.Persistence;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -40,6 +41,8 @@ namespace AzSp.Products
                     })
                 .As<AppConfiguration>();
             builder.RegisterType<ProductRepository>().AsSelf();
+            builder.RegisterType<ProductsLogic>().AsSelf();
+            builder.RegisterType<Elastic>().AsSelf();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

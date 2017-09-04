@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AzSp.Products.Domain", "AzS
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AzSp.Products.Persistence", "AzSp.Products.Persistence\AzSp.Products.Persistence.csproj", "{C8FA9927-6E0A-4934-BB3B-2B10F165826E}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AzSp.Products.Logic", "AzSp.Products.Logic\AzSp.Products.Logic.csproj", "{ACFCCCDA-B3AD-4ED7-8881-306C229F55C8}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,10 @@ Global
 		{C8FA9927-6E0A-4934-BB3B-2B10F165826E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C8FA9927-6E0A-4934-BB3B-2B10F165826E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C8FA9927-6E0A-4934-BB3B-2B10F165826E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{ACFCCCDA-B3AD-4ED7-8881-306C229F55C8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ACFCCCDA-B3AD-4ED7-8881-306C229F55C8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ACFCCCDA-B3AD-4ED7-8881-306C229F55C8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{ACFCCCDA-B3AD-4ED7-8881-306C229F55C8}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

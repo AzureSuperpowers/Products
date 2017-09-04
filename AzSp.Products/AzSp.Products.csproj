@@ -22,8 +22,8 @@
     <DotNetCliToolReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Tools" Version="1.0.0" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\AzSp.Products.Logic\AzSp.Products.Logic.csproj" />
     <ProjectReference Include="..\AzSp.Products.Domain\AzSp.Products.Domain.csproj" />
-    <ProjectReference Include="..\AzSp.Products.Persistence\AzSp.Products.Persistence.csproj" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="System.Configuration">
