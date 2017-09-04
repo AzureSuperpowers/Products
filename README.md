@@ -28,4 +28,17 @@
 * Create Service  
 `kubectl apply -f .deployment/elastic/es-svc.yaml`
 
-## Building and Packing  
+## Building and Publishing  
+
+* Build solution
+* Navigate to `AzSp.Products` folder and Publish it  
+`dotnet publish .\AzSp.Products.csproj -c Release -o ./obj/Docker/publish`  
+* Create Image  
+`docker build -t azsp.products .`
+* (Optional) Login to private registry  
+`docker login [Registry URL]`  
+* (Optional) Tag Image  
+`docker tag azsp.products [Registry URL]/azsp.products`
+* Push Image
+`docker push [Registry URL]/azsp.products`
+
