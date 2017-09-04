@@ -1,0 +1,22 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: products
+spec:
+  replicas: 2
+  strategy: {}
+  template:
+    metadata:
+      labels:
+        service: products
+    spec:
+      containers:
+      - image: myacr.azurecr.io/azsp.products:latest
+        name: products
+        ports:
+        - containerPort: 80
+        resources: {}
+      imagePullSecrets:
+      - name: regsecret
+      restartPolicy: Always
+status: {}
