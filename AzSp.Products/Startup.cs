@@ -29,6 +29,7 @@ namespace AzSp.Products
         {
             // Add framework services.
             services.AddMvc();
+            services.AddCors();
         }
 
         public void ConfigureContainer(ContainerBuilder builder)
@@ -52,6 +53,7 @@ namespace AzSp.Products
             loggerFactory.AddDebug();
 
             app.UseMvc();
+            app.UseCors(builder => builder.AllowAnyOrigin());
         }
     }
     
