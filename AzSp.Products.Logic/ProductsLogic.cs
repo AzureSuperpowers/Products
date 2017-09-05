@@ -30,6 +30,12 @@ namespace AzSp.Products.Logic
             return _elastic.Client.Search<Product>(s => s.From(0).Size(10).Query(q => q.Term(t => t.ProductId, id))).Documents;
         }
 
+        public void Save(Product model)
+        {
+            _productRepository.Update(model);
+            _elastic.Client.Index(model, f => f.Id(model.ProductId));
+        }
+
         public void Sync()
         {
             foreach (var prod in _productRepository.GetAll())

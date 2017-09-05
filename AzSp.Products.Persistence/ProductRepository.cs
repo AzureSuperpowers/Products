@@ -64,8 +64,8 @@ namespace AzSp.Products.Persistence
         {
             using (IDbConnection dbConnection = Connection)
             {
-                string sQuery = "UPDATE Products SET Name = @Name,"
-                               + " Quantity = @Quantity, Price= @Price"
+                string sQuery = "UPDATE Products SET ProductName = @ProductName,"
+                               + " QuantityPerUnit = @QuantityPerUnit, UnitPrice= @UnitPrice"
                                + " WHERE ProductId = @ProductId";
                 dbConnection.Open();
                 dbConnection.Query(sQuery, prod);

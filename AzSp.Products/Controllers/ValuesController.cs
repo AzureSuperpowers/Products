@@ -46,9 +46,17 @@ namespace AzSp.Products.Controllers
 
         // POST api/values
         [HttpPost]
-        public void Post([FromBody]string value)
+        public ActionResult Post([FromBody]Product value)
         {
-            //todo
+            try
+            {
+                _productsLogic.Save(value);
+                return Ok();
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
         }
 
         // PUT api/values/5
