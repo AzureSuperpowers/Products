@@ -52,8 +52,8 @@ namespace AzSp.Products
             loggerFactory.AddConsole(Configuration.GetSection("Logging"));
             loggerFactory.AddDebug();
 
+            app.UseCors(builder => builder.AllowAnyOrigin().AllowAnyHeader().AllowAnyMethod());
             app.UseMvc();
-            app.UseCors(builder => builder.AllowAnyOrigin());
         }
     }
     
