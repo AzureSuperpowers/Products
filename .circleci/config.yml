@@ -23,11 +23,15 @@ jobs:
             mv kubectl /usr/local/bin/kubectl
             kubectl
       - run:
-          name: kubectl
-          command: kubectl
+          name: Installing Az Cli
+          command: |
+            echo "deb https://packages.microsoft.com/repos/azure-cli/ wheezy main" | tee /etc/apt/sources.list.d/azure-cli.list
+            apt-key adv --keyserver packages.microsoft.com --recv-keys 417A0893
+            apt-get install apt-transport-https
+            apt-get update && apt-get install azure-cli
       - run:
-          name: ls
-          command: ls
+          name: az
+          command: az
       - run:
           name: building dotnet 
           command: dotnet build ./AzSp.Products/AzSp.Products.csproj -c Release
