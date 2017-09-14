@@ -28,14 +28,6 @@ jobs:
             chmod +x kubectl
             mv kubectl /usr/local/bin/kubectl
             kubectl
-      - run:
-          name: Config Kubectl
-          command: |
-            kubectl config --kubeconfig=acs-config set-cluster acs --server=$AZURE_ACS --insecure-skip-tls-verify
-            kubectl config --kubeconfig=acs-config set-credentials admin --username=$AZURE_USER --password=$AZURE_PASS
-            kubectl config --kubeconfig=acs-config set-context exp-scratch --cluster=scratch --namespace=default --user=admin
-            kubectl config --kubeconfig=acs-config use-context exp-scratch
-            kubectl get nodes
     #   - run:
     #       name: Installing Az Cli
     #       command: |
@@ -62,11 +54,21 @@ jobs:
       - run:
           name: docker build and push
           command: | 
-            TAG=1.$CIRCLE_BUILD_NUM
+            TAG=1.0.$CIRCLE_BUILD_NUM
             docker build -t azsp.products ./AzSp.Products/.
             docker tag azsp.products $DOCKER_REGISTRY/azsp.products:$TAG
             docker login $DOCKER_REGISTRY -u $DOCKER_USER -p $DOCKER_PASS
             docker push $DOCKER_REGISTRY/azsp.products:$TAG
+    #   - run:
+    #       name: Config Kubectl
+    #       command: |
+    #         TAG=1.0.$CIRCLE_BUILD_NUM
+    #         kubectl config --kubeconfig=acs-config set-cluster acs --server=$AZURE_ACS --insecure-skip-tls-verify
+    #         kubectl config --kubeconfig=acs-config set-credentials admin --username=$AZURE_USER --password=$AZURE_PASS
+    #         kubectl config --kubeconfig=acs-config set-context exp-scratch --cluster=scratch --namespace=default --user=admin
+    #         kubectl config --kubeconfig=acs-config use-context exp-scratch
+    #         kubectl get nodes
+    #         kubectl set image deployment/products azuresuperpowers.azurecr.io/azsp.products=azuresuperpowers.azurecr.io/azsp.products:$TAG
         
         
     
