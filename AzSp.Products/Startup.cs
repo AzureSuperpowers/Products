@@ -1,4 +1,5 @@
-﻿using AzSp.Products.Logic;
+﻿using System;
+using AzSp.Products.Logic;
 using AzSp.Products.Persistence;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -25,11 +26,12 @@ namespace AzSp.Products
             services.AddTransient<ProductRepository>();
             services.AddTransient<Elastic>();
             services.AddTransient<ProductsLogic>();
-            services.AddTransient<AppConfiguration>(config => new AppConfiguration
+            var appConfig = new AppConfiguration
             {
-                ConnectionString = Configuration.GetConnectionString("ProductDatabase"),
+                ConnectionString = Environment.GetEnvironmentVariable("ProductDatabase"),
                 ElasticSearch = Configuration.GetConnectionString("ElasticSearch")
-            });
+            };
+            services.AddTransient<AppConfiguration>(config => appConfig);
 
         }
 
