@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
@@ -22,6 +23,7 @@ namespace AzSp.Products.Persistence
         {
             using (IDbConnection dbConnection = Connection)
             {
+                Console.WriteLine(Connection.ConnectionString);
                 dbConnection.Open();
                 return dbConnection.Query<Product>("SELECT * FROM Products");
             }
