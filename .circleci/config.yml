@@ -7,6 +7,9 @@ jobs:
     steps:
       - checkout
       - run:
+          name: ls
+          command: ls
+      - run:
           name: building dotnet 
           command: dotnet build .\AzSp.Products.csproj -c Release
       - run:
