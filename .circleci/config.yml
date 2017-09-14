@@ -35,6 +35,7 @@ jobs:
             kubectl config --kubeconfig=acs-config set-credentials admin --username=$AZURE_USER --password=$AZURE_PASS
             kubectl config --kubeconfig=acs-config set-context exp-scratch --cluster=scratch --namespace=default --user=admin
             kubectl config --kubeconfig=acs-config use-context exp-scratch
+            kubectl get nodes
     #   - run:
     #       name: Installing Az Cli
     #       command: |
