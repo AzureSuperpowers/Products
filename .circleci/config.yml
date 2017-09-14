@@ -28,6 +28,13 @@ jobs:
             chmod +x kubectl
             mv kubectl /usr/local/bin/kubectl
             kubectl
+      - run:
+          name: Config Kubectl
+          command: |
+            kubectl config --kubeconfig=acs-config set-cluster acs --server=$AZURE_ACS --insecure-skip-tls-verify
+            kubectl config --kubeconfig=acs-config set-credentials admin --username=$AZURE_USER --password=$AZURE_PASS
+            kubectl config --kubeconfig=acs-config set-context exp-scratch --cluster=scratch --namespace=default --user=admin
+            kubectl config --kubeconfig=acs-config use-context exp-scratch
     #   - run:
     #       name: Installing Az Cli
     #       command: |
