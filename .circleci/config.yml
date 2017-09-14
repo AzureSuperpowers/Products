@@ -25,10 +25,10 @@ jobs:
       - run:
           name: Installing Az Cli
           command: |
+            apt-get install apt-transport-https
             echo "deb https://packages.microsoft.com/repos/azure-cli/ wheezy main" | tee /etc/apt/sources.list.d/azure-cli.list
             apt-key adv --keyserver packages.microsoft.com --recv-keys 417A0893
             # echo "deb [arch=amd64] https://packages.microsoft.com/repos/azure-cli/ wheezy main" | tee /etc/apt/sources.list.d/azure-cli.list
-            apt-get install apt-transport-https
             apt-get update && apt-get install azure-cli
       - run:
           name: az
