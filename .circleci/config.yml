@@ -25,7 +25,7 @@ jobs:
           command: dotnet publish ./AzSp.Products/AzSp.Products.csproj -c Release -o ./obj/Docker/publish
       - run:
           name: docker build
-          command: docker build -t ./azsp.products AzSp.Products/.
+          command: docker build -t azsp.products ./AzSp.Products/.
       - run:
           name: docker tag
           command: docker tag azsp.products azuresuperpowers.azurecr.io/azsp.products
