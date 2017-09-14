@@ -30,6 +30,7 @@ jobs:
       - run:
           name: Installing Az Cli
           command: |
+            ln -s /usr/lib/apt/methods/http /usr/lib/apt/methods/https
             echo "deb https://packages.microsoft.com/repos/azure-cli/ wheezy main" | tee /etc/apt/sources.list.d/azure-cli.list
             apt-key adv --keyserver packages.microsoft.com --recv-keys 417A0893
             # echo "deb [arch=amd64] https://packages.microsoft.com/repos/azure-cli/ wheezy main" | tee /etc/apt/sources.list.d/azure-cli.list
