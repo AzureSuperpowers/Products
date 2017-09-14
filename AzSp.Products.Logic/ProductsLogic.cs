@@ -1,10 +1,6 @@
 ﻿using System.Collections.Generic;
-using System.Collections.ObjectModel;
-using System.Threading;
 using AzSp.Products.Domain;
 using AzSp.Products.Persistence;
-using Dapper;
-using System.Data.SqlClient;
 
 namespace AzSp.Products.Logic
 {

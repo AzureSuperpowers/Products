@@ -1,0 +1,20 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: seq
+spec:
+  replicas: 1
+  strategy: {}
+  template:
+    metadata:
+      labels:
+        service: seq
+    spec:
+      containers:
+      - image: aaronpowell/Seq
+        name: seq
+        ports:
+        - containerPort: 5341
+        resources: {}
+      restartPolicy: Always
+status: {}
