@@ -38,8 +38,8 @@ jobs:
             # apt-get update && apt-get install azure-cli
             # apt-get install apt-transport-https 
             # # apt-get update && apt-get install -y python libssl-dev libffi-dev python-dev build-essential
-            az login -u $AZURE_USER -p $AZURE_PASS
-            az account set -s $AZURE_SUBS
+            azure login -u $AZURE_USER -p $AZURE_PASS
+            azure account set -s $AZURE_SUBS
             # az acs kubernetes get-credentials -g kube-bris --name=myK8sCluster
             # kubectl get nodes
     #   - run:
