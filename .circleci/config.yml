@@ -22,12 +22,12 @@ jobs:
             chmod +x kubectl
             mv kubectl /usr/local/bin/kubectl
             kubectl
-            apt-key adv --keyserver packages.microsoft.com --recv-keys 417A0893
       - run:
           name: Installing Az Cli
           command: |
             echo "deb https://packages.microsoft.com/repos/azure-cli/ wheezy main" | tee /etc/apt/sources.list.d/azure-cli.list
-            echo "deb [arch=amd64] https://packages.microsoft.com/repos/azure-cli/ wheezy main" | tee /etc/apt/sources.list.d/azure-cli.list
+            apt-key adv --keyserver packages.microsoft.com --recv-keys 417A0893
+            # echo "deb [arch=amd64] https://packages.microsoft.com/repos/azure-cli/ wheezy main" | tee /etc/apt/sources.list.d/azure-cli.list
             apt-get install apt-transport-https
             apt-get update && apt-get install azure-cli
       - run:
