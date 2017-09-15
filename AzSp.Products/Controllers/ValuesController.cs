@@ -38,6 +38,12 @@ namespace AzSp.Products.Controllers
             _productsLogic.Sync();
         }
 
+        [HttpGet("test")]
+        public string test()
+        {
+            return "Hello Sydney!";
+        }
+
 
         // POST api/values
         [HttpPost]
